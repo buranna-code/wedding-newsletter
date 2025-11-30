@@ -1,758 +1,262 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Buranna Wedding Newsletter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Newsletter & Updates zur Hochzeit von Anna & Burak – alle Infos bis zum großen Tag."
-  />
+  <meta charset="UTF-8">
+  <title>Buranna • Wedding Magazine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Google Fonts (Service95 Style) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #f7f3eb;
-      --card: #ffffff;
-      --primary: #243b53;
-      --accent: #d4a657;
-      --accent-soft: rgba(212, 166, 87, 0.12);
-      --text: #1a202c;
-      --muted: #6b7280;
-      --border: #e2e8f0;
-      --radius-lg: 18px;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #fdfaf5 0, #f3eee4 42%, #efe7da 100%);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 0;
       margin: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 18px 80px;
+      font-family: 'Inter', sans-serif;
+      background: #faf9f7;
+      color: #111;
+      line-height: 1.6;
     }
 
     header {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      border-radius: 30px;
-      padding: 24px 22px;
-      margin-bottom: 26px;
-      border: 1px solid rgba(226, 232, 240, 0.7);
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
       position: sticky;
-      top: 10px;
-      z-index: 20;
+      top: 0;
+      background: white;
+      padding: 20px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      z-index: 100;
     }
 
-    .header-inner {
+    .nav {
       display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .monogram {
-      width: 60px;
-      height: 60px;
-      border-radius: 999px;
-      border: 2px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      letter-spacing: 0.12em;
-      color: var(--primary);
-      background: linear-gradient(135deg, #fdf7ec, #f2e4ca);
-    }
-
-    .header-text {
-      flex: 1;
-      min-width: 210px;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 26px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .header-subtitle {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    nav a {
-      font-size: 12px;
+      gap: 30px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: #4b5563;
-      background: rgba(248, 250, 252, 0.7);
-      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    nav a:hover {
-      background: var(--accent-soft);
-      transform: translateY(-1px);
-      box-shadow: 0 9px 18px rgba(15, 23, 42, 0.08);
-    }
-
-    main {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
-      gap: 22px;
-    }
-
-    @media (max-width: 830px) {
-      header {
-        position: static;
-      }
-      main {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Hero / countdown card */
-    .hero-card {
-      background: var(--card);
-      border-radius: var(--radius-lg);
-      padding: 22px 22px 20px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-tag {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .hero-title {
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .hero-subline {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .countdown {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .countdown-block {
-      flex: 1;
-      min-width: 72px;
-      padding: 10px 8px;
-      border-radius: 14px;
-      background: radial-gradient(circle at top left, #fff7e7, #fdfdfd);
-      border: 1px solid rgba(221, 214, 195, 0.9);
-      text-align: center;
-    }
-
-    .countdown-number {
-      display: block;
-      font-size: 21px;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .countdown-label {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .hero-note {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .highlight {
-      color: var(--accent);
       font-weight: 500;
     }
 
-    /* Right column – next update & key info */
-    .sidebar-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    .nav a {
+      text-decoration: none;
+      color: #333;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav a:hover {
+      border-bottom: 2px solid black;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2.section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      margin-top: 60px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid black;
+      padding-bottom: 6px;
+      display: inline-block;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 26px;
+      margin-bottom: 60px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: var(--radius-lg);
-      padding: 16px 16px 15px;
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: all 0.25s ease;
     }
 
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7f7e7d;
       margin-bottom: 8px;
     }
 
     .card-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--primary);
-    }
-
-    .pill {
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: var(--muted);
-      background: rgba(248, 250, 252, 0.85);
-    }
-
-    .card-body {
-      font-size: 13px;
-      color: #4b5563;
-    }
-
-    .small-list {
-      margin-top: 6px;
-      font-size: 12px;
-      color: var(--muted);
-      padding-left: 16px;
-    }
-
-    .small-list li {
-      margin-bottom: 2px;
-    }
-
-    /* Updates section */
-    section {
-      margin-top: 26px;
-    }
-
-    section h2 {
       font-family: "Playfair Display", serif;
       font-size: 20px;
-      color: var(--primary);
       margin-bottom: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
 
-    .section-intro {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .updates-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
-      gap: 14px;
-    }
-
-    @media (max-width: 680px) {
-      .updates-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .update-card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 14px 14px 12px;
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .update-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .update-title {
+    .card-text {
       font-size: 14px;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .update-text {
-      font-size: 13px;
-      color: #4b5563;
-    }
-
-    .update-tag {
-      font-size: 11px;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: rgba(212, 166, 87, 0.12);
-      color: #92400e;
-    }
-
-    /* Mini timeline */
-    .timeline-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    @media (max-width: 720px) {
-      .timeline-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .timeline-item {
-      background: #fdfbf7;
-      border-radius: 16px;
-      padding: 12px 12px 10px;
-      border: 1px dashed rgba(212, 166, 87, 0.4);
-    }
-
-    .timeline-day {
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .timeline-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .timeline-text {
-      font-size: 13px;
-      color: #4b5563;
-    }
-
-    /* Travel / FAQ / Kontakt */
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 18px;
-      margin-top: 12px;
-    }
-
-    @media (max-width: 830px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .list-block {
-      font-size: 13px;
-      color: #4b5563;
-    }
-
-    .list-block h3 {
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .list-block ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .list-block li {
-      margin-bottom: 6px;
-    }
-
-    .list-block strong {
-      color: var(--primary);
-    }
-
-    .divider {
-      margin: 14px 0;
-      height: 1px;
-      background: linear-gradient(
-        to right,
-        rgba(148, 163, 184, 0),
-        rgba(148, 163, 184, 0.6),
-        rgba(148, 163, 184, 0)
-      );
-    }
-
-    .faq-item {
-      margin-bottom: 7px;
-      font-size: 13px;
-    }
-
-    .faq-q {
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .faq-a {
-      color: #4b5563;
+      color: #444;
     }
 
     footer {
-      margin-top: 26px;
-      font-size: 11px;
       text-align: center;
-      color: var(--muted);
-    }
-
-    footer span {
-      letter-spacing: 0.18em;
+      padding: 40px;
+      margin-top: 40px;
+      background: #f1efe8;
+      font-size: 13px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: #524d46;
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <div class="header-inner">
-        <div class="monogram">A&B</div>
-        <div class="header-text">
-          <div class="eyebrow">Buranna Wedding • 5. Juni 2026</div>
-          <h1>Wedding Newsletter</h1>
-          <div class="header-subtitle">
-            Alle Updates für unsere Gäste bis zum großen Tag – Programm, Travel, kleine Überraschungen.
-          </div>
-          <nav>
-            <a href="#updates">Updates</a>
-            <a href="#timeline">Programm</a>
-            <a href="#travel">Anreise & Stay</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Kontakt</a>
-          </nav>
-        </div>
+
+<header>
+  <nav class="nav">
+    <a href="#culture">Culture</a>
+    <a href="#activism">Activism</a>
+    <a href="#travel">Travel</a>
+    <a href="#self">Self</a>
+    <a href="#wedding">Wedding</a>
+  </nav>
+</header>
+
+<div class="container">
+<section id="culture">
+  <h2 class="section-title">Culture</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="tag">Culture</div>
+      <div class="card-title">Buranna Wedding Playlist</div>
+      <div class="card-text">
+        Unsere kuratierte Playlist aus Italo Disco, Funk, House & Love Songs.
+        Bald als Spotify-Link verfügbar.
       </div>
-    </header>
+    </div>
 
-    <main>
-      <!-- Left: Hero / Countdown / Intro -->
-      <div>
-        <section class="hero-card" aria-label="Countdown zur Hochzeit">
-          <div class="hero-tag">Bis wir mit euch feiern</div>
-          <div class="hero-title">Countdown nach Umbrien</div>
-          <div class="hero-subline">
-            Wir freuen uns wahnsinnig, mit euch drei Tage lang zu feiern – hier halten wir euch auf dem Laufenden.
-          </div>
-
-          <div class="countdown" id="countdown">
-            <div class="countdown-block">
-              <span class="countdown-number" id="days">–</span>
-              <span class="countdown-label">Tage</span>
-            </div>
-            <div class="countdown-block">
-              <span class="countdown-number" id="hours">–</span>
-              <span class="countdown-label">Stunden</span>
-            </div>
-            <div class="countdown-block">
-              <span class="countdown-number" id="minutes">–</span>
-              <span class="countdown-label">Minuten</span>
-            </div>
-          </div>
-
-          <p class="hero-note">
-            Nächster größerer Newsletter: <span class="highlight">Frühjahr 2026</span> mit finalem Programm, Dresscode-Details
-            und kleinen Insider-Tipps für Umbrien.
-          </p>
-        </section>
-
-        <!-- Updates -->
-        <section id="updates">
-          <h2>Aktuelle Updates</h2>
-          <p class="section-intro">
-            Hier findet ihr alle News in kleinen Häppchen – ihr könnt also jederzeit nachsehen, was sich geändert hat.
-          </p>
-
-          <div class="updates-grid">
-            <article class="update-card">
-              <div class="update-meta">
-                <span>Update #1 • November 2025</span>
-                <span class="update-tag">Save the Date</span>
-              </div>
-              <h3 class="update-title">Save the Date & Tennis-Hype 🎾</h3>
-              <p class="update-text">
-                Die Daten stehen: Wir feiern mit euch von <strong>Freitag bis Sonntag</strong> in Umbrien.  
-                Für alle Tennis-Nerds: Es wird ein kleines Fun-Turnier geben – Rackets & gute Laune reichen.
-              </p>
-            </article>
-
-            <article class="update-card">
-              <div class="update-meta">
-                <span>Update #2 • Beispiel</span>
-                <span class="update-tag">Travel</span>
-              </div>
-              <h3 class="update-title">Erste Hotel-Optionen online</h3>
-              <p class="update-text">
-                Wir sammeln aktuell Unterkünfte in der Nähe der Location (verschiedene Budgets).  
-                In einem der nächsten Newsletter verlinken wir euch eine kleine Übersicht mit Empfehlungen.
-              </p>
-            </article>
-
-            <article class="update-card">
-              <div class="update-meta">
-                <span>Update #3 • Beispiel</span>
-                <span class="update-tag">Programm</span>
-              </div>
-              <h3 class="update-title">Ablauf in drei Akten</h3>
-              <p class="update-text">
-                Welcome-Abend, Hochzeitstag, Chill-Down-Sunday: Wir feilen gerade am Programm – mit genug Zeit für
-                Pool, Sonne und gutes Essen.
-              </p>
-            </article>
-
-            <article class="update-card">
-              <div class="update-meta">
-                <span>Update #4 • Platzhalter</span>
-                <span class="update-tag">Details</span>
-              </div>
-              <h3 class="update-title">Hier kommt euer nächstes Update</h3>
-              <p class="update-text">
-                Diesen Text könnt ihr später einfach austauschen und als neuen Newsletter-Eintrag nutzen – z. B. Dresscode,
-                Shuttle-Zeiten oder Song-Wünsche.
-              </p>
-            </article>
-          </div>
-        </section>
+    <div class="card">
+      <div class="tag">Culture</div>
+      <div class="card-title">Umbrien: Die Magie der Region</div>
+      <div class="card-text">
+        Kleine Stories über Kultur, Kulinarik, Kunst & die Stimmung vor Ort.
       </div>
+    </div>
 
-      <!-- Right: Sidebar -->
-      <aside class="sidebar-stack" aria-label="Key Info">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Nächstes Update</div>
-            <div class="pill">Planung</div>
-          </div>
-          <div class="card-body">
-            <p>
-              Aktuell arbeiten wir an:
-            </p>
-            <ul class="small-list">
-              <li>• Übersicht der Unterkünfte in der Nähe</li>
-              <li>• Infos zur Anreise (Flug / Zug / Auto)</li>
-              <li>• grober Zeitplan für alle drei Tage</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card" id="timeline">
-          <div class="card-header">
-            <div class="card-title">Mini-Programm</div>
-            <div class="pill">3 Tage</div>
-          </div>
-          <div class="card-body">
-            <div class="timeline-grid">
-              <div class="timeline-item">
-                <div class="timeline-day">Tag 1 – Ankommen</div>
-                <div class="timeline-title">Welcome & Pizza Night</div>
-                <div class="timeline-text">
-                  Ankommen, Einchecken, Abends entspanntes Kennenlernen mit Pizza & Wein – Dresscode easy & comfy.
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-day">Tag 2 – Hochzeit</div>
-                <div class="timeline-title">Ceremony, Dinner, Party</div>
-                <div class="timeline-text">
-                  Trauung, Aperitivo, Dinner & Party. Somewhere zwischen Dolce Vita, Tennis-Emotion und ein bisschen Drama.
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-day">Tag 3 – Slow Sunday</div>
-                <div class="timeline-title">Brunch & Chill</div>
-                <div class="timeline-text">
-                  Später Brunch, Poolzeiten, eventuell ein kleines Mixed-Doppel oder Spaziergang – ganz ohne Programmstress.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="travel" class="card">
-          <div class="card-header">
-            <div class="card-title">Anreise & Stay</div>
-            <div class="pill">Work in Progress</div>
-          </div>
-          <div class="card-body">
-            <div class="list-block">
-              <h3>Wie ihr uns findet</h3>
-              <ul>
-                <li><strong>Flug:</strong> z. B. nach Rom / Florenz, von dort Mietwagen oder Zug.</li>
-                <li><strong>Zug:</strong> Anreise nach Italien & Weiterfahrt in Richtung Umbrien.</li>
-                <li><strong>Auto:</strong> Roadtrip-Option – Parkplatzmöglichkeiten bei der Location folgen.</li>
-              </ul>
-            </div>
-            <div class="divider"></div>
-            <div class="list-block">
-              <h3>Unterkünfte</h3>
-              <ul>
-                <li><strong>Haupt-Location:</strong> begrenzte Zimmer – Infos & Kontingent folgen.</li>
-                <li><strong>In der Nähe:</strong> Wir sammeln aktuell Hotels & Airbnbs in verschiedenen Preiskategorien.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id="faq" class="card">
-          <div class="card-header">
-            <div class="card-title">FAQ</div>
-            <div class="pill">Für Planner & Chiller</div>
-          </div>
-          <div class="card-body">
-            <div class="faq-item">
-              <div class="faq-q">Brauchen wir ein Geschenk?</div>
-              <div class="faq-a">
-                Eure Anwesenheit ist das Wichtigste. Alles Weitere schreiben wir im großen Einladungstext – coming soon.
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q">Können Kinder mitkommen?</div>
-              <div class="faq-a">
-                Ja/nein/teilweise – diesen Text könnt ihr an eure Realität anpassen 😉
-              </div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q">Wie ist der Dresscode?</div>
-              <div class="faq-a">
-                Grobe Richtung: italienisches Sommerfest, elegant aber entspannt. Details folgen in einem der nächsten Updates.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="contact" class="card">
-          <div class="card-header">
-            <div class="card-title">Kontakt</div>
-            <div class="pill">Wir sind da</div>
-          </div>
-          <div class="card-body">
-            <p>
-              Wenn ihr Fragen habt (Anreise, Allergien, Kinder, plus one, etc.), schreibt uns jederzeit:
-            </p>
-            <p style="margin-top: 6px;">
-              📧 <a href="mailto:buranna.wedding@example.com">buranna.wedding@example.com</a><br />
-              💬 oder direkt per WhatsApp/Signal an uns beide.
-            </p>
-            <p style="margin-top: 8px; font-size: 12px; color: var(--muted);">
-              Optional könnt ihr hier später noch ein Formular oder einen Newsletter-Button (Mailchimp o. Ä.) einbauen.
-            </p>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <footer>
-      <span>buranna • wedding newsletter</span><br />
-      Umbrien, Juni 2026 – made with amore & a bit of chaos.
-    </footer>
   </div>
+</section>
+<section id="activism">
+  <h2 class="section-title">Activism</h2>
 
-  <script>
-    // Countdown zur Hochzeit
-    (function () {
-      // Datum der Trauung (anpassen, wenn ihr wollt)
-      const weddingDate = new Date("2026-06-05T15:00:00+02:00");
+  <div class="grid">
 
-      const daysEl = document.getElementById("days");
-      const hoursEl = document.getElementById("hours");
-      const minutesEl = document.getElementById("minutes");
+    <div class="card">
+      <div class="tag">Activism</div>
+      <div class="card-title">Sustainable Wedding Choices</div>
+      <div class="card-text">
+        Lokale Produzenten, keine unnötigen Giveaways, Fokus auf Qualität & Community.
+      </div>
+    </div>
 
-      function updateCountdown() {
-        const now = new Date();
-        const diff = weddingDate - now;
+    <div class="card">
+      <div class="tag">Impact</div>
+      <div class="card-title">Giveback: Future Projects</div>
+      <div class="card-text">
+        Wir überlegen, ob wir im Rahmen der Hochzeit ein kleines Charity-Projekt unterstützen.
+      </div>
+    </div>
 
-        if (diff <= 0) {
-          daysEl.textContent = "0";
-          hoursEl.textContent = "0";
-          minutesEl.textContent = "0";
-          return;
-        }
+  </div>
+</section>
+<section id="travel">
+  <h2 class="section-title">Travel</h2>
 
-        const totalMinutes = Math.floor(diff / 1000 / 60);
-        const totalHours = Math.floor(totalMinutes / 60);
-        const days = Math.floor(totalHours / 24);
-        const hours = totalHours % 24;
-        const minutes = totalMinutes % 60;
+  <div class="grid">
+    <div class="card">
+      <div class="tag">Travel</div>
+      <div class="card-title">Reise nach Umbrien</div>
+      <div class="card-text">
+        Die besten Verbindungen nach Rom/Florenz & wie ihr easy zum Venue kommt.
+      </div>
+    </div>
 
-        daysEl.textContent = days;
-        hoursEl.textContent = hours;
-        minutesEl.textContent = minutes;
-      }
+    <div class="card">
+      <div class="tag">Stay</div>
+      <div class="card-title">Hotels & Unterkünfte</div>
+      <div class="card-text">
+        Eine Liste an Hotels & Airbnbs wird im Frühjahr 2026 veröffentlicht.
+      </div>
+    </div>
+  </div>
+</section>
+<section id="self">
+  <h2 class="section-title">Self</h2>
 
-      updateCountdown();
-      setInterval(updateCountdown, 60000); // jede Minute aktualisieren
-    })();
-  </script>
+  <div class="grid">
+    <div class="card">
+      <div class="tag">Self</div>
+      <div class="card-title">Pre-Wedding Wellness Guide</div>
+      <div class="card-text">
+        Was wir tun, um bis zur Hochzeit fit, entspannt & glowing auszusehen.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">Mindset</div>
+      <div class="card-title">Slow Living in Umbrien</div>
+      <div class="card-text">
+        Ein paar Gedanken über Ruhe, Natur & die Schönheit simpler Momente.
+      </div>
+    </div>
+
+  </div>
+</section>
+<section id="wedding">
+  <h2 class="section-title">Wedding</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="tag">Wedding Update</div>
+      <div class="card-title">Tennis Tournament Teaser</div>
+      <div class="card-text">
+        Mixed-Doubles, Friendly Matches & kleine Preise.  
+        Rackets werden gestellt – just vibes.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">Wedding</div>
+      <div class="card-title">Newsletter #1 – What’s Next</div>
+      <div class="card-text">
+        Unterkunftsliste, Shuttle-Pläne, Dresscode & Timeline folgen Q1 2026.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">Program</div>
+      <div class="card-title">3-Tage Ablauf</div>
+      <div class="card-text">
+        Friday Pizza Night – Saturday Ceremony – Sunday Chilldown.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div> <!-- END CONTAINER -->
+
+<footer>
+  Buranna Wedding Magazine • Umbrien 2026  
+</footer>
+
 </body>
 </html>
+
+
