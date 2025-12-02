@@ -140,6 +140,57 @@
       border: 1px solid var(--border);
       box-shadow: 0 12px 32px rgba(15, 23, 42, 0.13);
     }
+/* FOTO-SLIDER (Before/After) */
+.compare-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 26px auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
+  cursor: ew-resize;
+}
+
+.compare-img {
+  width: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.compare-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;          /* Start in der Mitte */
+  height: 100%;
+  overflow: hidden;
+}
+
+.compare-slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #f9fafb;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.compare-slider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 2px solid #f9fafb;
+  background: rgba(15, 23, 42, 0.85);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
 
     .hero-eyebrow {
       font-size: 11px;
@@ -537,6 +588,15 @@
       <div class="section-header">
         <h2 class="section-title">Wedding</h2>
         <p class="section-kicker">
+            <!-- Buranna Foto-Slider -->
+  <div class="compare-container">
+    <img src="images/burak-restaurant.jpg" class="compare-img" alt="Burak im Restaurant">
+    <div class="compare-overlay">
+      <img src="images/anna-restaurant.jpg" class="compare-img" alt="Anna im Restaurant">
+    </div>
+    <div class="compare-slider"></div>
+  </div>
+
           Alle konkreten Infos: Programm, Tennis, FAQ, Kontakt & alles, was ihr wirklich wissen
           müsst, um entspannt zu planen.
         </p>
@@ -593,8 +653,8 @@
     </footer>
   </main>
 
-  <script>
-    // Einfache Countdown-Logik
+    <script>
+    // Countdown
     (function () {
       const weddingDate = new Date("2026-06-05T15:00:00+02:00");
       const daysEl = document.getElementById("days");
@@ -625,6 +685,34 @@
 
       updateCountdown();
       setInterval(updateCountdown, 60000);
+    })();
+
+    // Foto-Slider
+    (function () {
+      const container = document.querySelector(".compare-container");
+      if (!container) return;
+
+      const overlay = container.querySelector(".compare-overlay");
+      const slider = container.querySelector(".compare-slider");
+
+      function move(x) {
+        const rect = container.getBoundingClientRect();
+        let pos = x - rect.left;
+        if (pos < 0) pos = 0;
+        if (pos > rect.width) pos = rect.width;
+
+        const percent = (pos / rect.width) * 100;
+        overlay.style.width = percent + "%";
+        slider.style.left = percent + "%";
+      }
+
+      container.addEventListener("mousemove", (e) => {
+        move(e.clientX);
+      });
+
+      container.addEventListener("touchmove", (e) => {
+        move(e.touches[0].clientX);
+      });
     })();
   </script>
 </body>
