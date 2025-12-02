@@ -36,13 +36,13 @@
       text-decoration: none;
     }
 
-    /* HEADER / NAV  -------------------------------------------------- */
+    /* HEADER / NAV --------------------------------------------------- */
 
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(250, 247, 242, 0.92);
+      background: rgba(250, 247, 242, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(229, 231, 235, 0.9);
     }
@@ -140,57 +140,6 @@
       border: 1px solid var(--border);
       box-shadow: 0 12px 32px rgba(15, 23, 42, 0.13);
     }
-/* FOTO-SLIDER (Before/After) */
-.compare-container {
-  position: relative;
-  width: 100%;
-  max-width: 700px;
-  margin: 26px auto;
-  overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
-  cursor: ew-resize;
-}
-
-.compare-img {
-  width: 100%;
-  display: block;
-  user-select: none;
-  pointer-events: none;
-}
-
-.compare-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;          /* Start in der Mitte */
-  height: 100%;
-  overflow: hidden;
-}
-
-.compare-slider {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: #f9fafb;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.compare-slider::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  border: 2px solid #f9fafb;
-  background: rgba(15, 23, 42, 0.85);
-  transform: translate(-50%, -50%);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
-}
 
     .hero-eyebrow {
       font-size: 11px;
@@ -306,7 +255,7 @@
       border: 1px solid rgba(248, 250, 252, 0.2);
     }
 
-    /* SECTIONS (MAGAZINE GRID) --------------------------------------- */
+    /* SECTIONS ------------------------------------------------------- */
 
     section {
       margin-top: 36px;
@@ -386,6 +335,93 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+
+    /* FOTO-SLIDER ---------------------------------------------------- */
+
+    .compare-section {
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    .compare-header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .compare-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .compare-title {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .compare-text {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .compare-container {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 18px auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.28);
+      cursor: ew-resize;
+      background: #000;
+    }
+
+    .compare-img {
+      width: 100%;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .compare-overlay {
+      position: absolute;
+      inset: 0;
+      width: 50%; /* Start in der Mitte */
+      overflow: hidden;
+    }
+
+    .compare-slider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #f9fafb;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .compare-slider::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 2px solid #f9fafb;
+      background: rgba(15, 23, 42, 0.9);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 600px) {
+      .compare-title {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 
@@ -456,6 +492,29 @@
       </aside>
     </section>
 
+    <!-- FOTO-SLIDER -->
+    <section class="compare-section" aria-label="First Date Slider">
+      <div class="compare-header">
+        <div class="compare-eyebrow">First Date</div>
+        <div class="compare-title">Burak ↔ Anna</div>
+        <p class="compare-text">
+          Swipe durch unser erstes Date – einmal Burak, einmal Anna, gleicher Tisch, gleicher Vibe.
+        </p>
+      </div>
+
+      <div class="compare-container">
+        <!-- Basisbild: Burak -->
+        <img src="images/Burak_First_Date.jpg" class="compare-img" alt="Burak beim ersten Date">
+
+        <!-- Overlay: Anna -->
+        <div class="compare-overlay">
+          <img src="images/Anna_First_Date.jpg" class="compare-img" alt="Anna beim ersten Date">
+        </div>
+
+        <div class="compare-slider"></div>
+      </div>
+    </section>
+
     <!-- CULTURE -->
     <section id="culture">
       <div class="section-header">
@@ -472,7 +531,7 @@
           <h3 class="card-title">Buranna Wedding Playlist</h3>
           <p class="card-text">
             Von Italo Disco über Funk bis hin zu Slow Dance – hier sammeln wir Songs, die am
-            Wochenende laufen werden. Link folgt, sobald die Playlist “kuratiert genug” ist.
+            Wochenende laufen werden. Link folgt, sobald die Playlist kuratiert genug ist.
           </p>
         </article>
 
@@ -524,7 +583,7 @@
         <h2 class="section-title">Travel</h2>
         <p class="section-kicker">
           Alles zu Anreise, Unterkünften und kleinen Umbrien-Entdeckungen – damit ihr entspannt
-          ankommt und gerne noch ein paar Tage dran hängt.
+          ankommt und gerne noch ein paar Tage dranhängt.
         </p>
       </div>
 
@@ -588,15 +647,6 @@
       <div class="section-header">
         <h2 class="section-title">Wedding</h2>
         <p class="section-kicker">
-            <!-- Buranna Foto-Slider -->
-  <div class="compare-container">
-    <img src="images/burak-restaurant.jpg" class="compare-img" alt="Burak im Restaurant">
-    <div class="compare-overlay">
-      <img src="images/anna-restaurant.jpg" class="compare-img" alt="Anna im Restaurant">
-    </div>
-    <div class="compare-slider"></div>
-  </div>
-
           Alle konkreten Infos: Programm, Tennis, FAQ, Kontakt & alles, was ihr wirklich wissen
           müsst, um entspannt zu planen.
         </p>
@@ -653,7 +703,7 @@
     </footer>
   </main>
 
-    <script>
+  <script>
     // Countdown
     (function () {
       const weddingDate = new Date("2026-06-05T15:00:00+02:00");
