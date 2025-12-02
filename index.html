@@ -336,7 +336,7 @@
       color: var(--muted);
     }
 
-    /* FOTO-SLIDER ---------------------------------------------------- */
+    /* FOTO-SLIDER (BEFORE/AFTER) ------------------------------------ */
 
     .compare-section {
       margin-top: 28px;
@@ -379,6 +379,7 @@
       background: #000;
     }
 
+    /* Bild unten (Burak) */
     .compare-img {
       width: 100%;
       display: block;
@@ -386,10 +387,13 @@
       pointer-events: none;
     }
 
+    /* Bild oben (Anna) – wird horizontal beschnitten */
     .compare-overlay {
       position: absolute;
-      inset: 0;
-      width: 50%; /* Start in der Mitte */
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;         /* Start in der Mitte */
       overflow: hidden;
     }
 
@@ -417,97 +421,9 @@
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
     }
 
-    /* FOTO-SLIDER ---------------------------------------------------- */
-
-.compare-section {
-  margin-top: 28px;
-  margin-bottom: 10px;
-}
-
-.compare-header {
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-.compare-eyebrow {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--muted);
-  margin-bottom: 4px;
-}
-
-.compare-title {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-  margin-bottom: 4px;
-}
-
-.compare-text {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* Container für Before/After */
-.compare-container {
-  position: relative;
-  width: 100%;
-  max-width: 720px;
-  margin: 18px auto 0;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.28);
-  cursor: ew-resize;
-  background: #000;
-}
-
-/* Basisbild (liegt unten) */
-.compare-img {
-  width: 100%;
-  display: block;
-  user-select: none;
-  pointer-events: none;
-}
-
-/* Overlay-Bild (oben) – wird in der BREITE beschnitten */
-.compare-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 50%;          /* Start bei 50 % – Mitte */
-  overflow: hidden;
-}
-
-/* Vertikale Slider-Linie */
-.compare-slider {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: #f9fafb;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.compare-slider::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  border: 2px solid #f9fafb;
-  background: rgba(15, 23, 42, 0.9);
-  transform: translate(-50%, -50%);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-}
-
-@media (max-width: 600px) {
-  .compare-title {
-    font-size: 18px;
-  }
+    @media (max-width: 600px) {
+      .compare-title {
+        font-size: 18px;
       }
     }
   </style>
@@ -586,22 +502,21 @@
         <div class="compare-eyebrow">First Date</div>
         <div class="compare-title">Burak ↔ Anna</div>
         <p class="compare-text">
-          Swipe durch unser erstes Date – einmal Burak, einmal Anna, gleicher Tisch, gleicher Vibe.
+          Zwei Perspektiven, ein Tisch: Burak & Anna – wische horizontal, um zwischen uns zu wechseln.
         </p>
       </div>
 
       <div class="compare-container">
-  <!-- Basisbild: Burak -->
-  <img src="Burak_First_Date.jpeg" class="compare-img" alt="Burak beim ersten Date">
+        <!-- Basisbild: Burak (unten) -->
+        <img src="Burak_First_Date.jpeg" class="compare-img" alt="Burak beim ersten Date">
 
-  <!-- Overlay: Anna -->
-  <div class="compare-overlay">
-    <img src="Anna_First_Date.jpeg" class="compare-img" alt="Anna beim ersten Date">
-  </div>
+        <!-- Overlay: Anna (oben, wird horizontal beschnitten) -->
+        <div class="compare-overlay">
+          <img src="Anna_First_Date.jpeg" class="compare-img" alt="Anna beim ersten Date">
+        </div>
 
-  <div class="compare-slider"></div>
-</div>
-
+        <div class="compare-slider"></div>
+      </div>
     </section>
 
     <!-- CULTURE -->
@@ -826,7 +741,7 @@
       setInterval(updateCountdown, 60000);
     })();
 
-    // Foto-Slider
+    // Foto-Slider (Anna über Burak, horizontal wischen)
     (function () {
       const container = document.querySelector(".compare-container");
       if (!container) return;
@@ -834,15 +749,14 @@
       const overlay = container.querySelector(".compare-overlay");
       const slider = container.querySelector(".compare-slider");
 
-      function move(x) {
+      function move(clientX) {
         const rect = container.getBoundingClientRect();
-        let pos = x - rect.left;
+        let pos = clientX - rect.left; // Abstand von linker Kante
         if (pos < 0) pos = 0;
         if (pos > rect.width) pos = rect.width;
 
-        const percent = (pos / rect.width) * 100;
-        overlay.style.width = percent + "%";
-        slider.style.left = percent + "%";
+        overlay.style.width = pos + "px";
+        slider.style.left = pos + "px";
       }
 
       container.addEventListener("mousemove", (e) => {
@@ -850,6 +764,7 @@
       });
 
       container.addEventListener("touchmove", (e) => {
+        if (!e.touches[0]) return;
         move(e.touches[0].clientX);
       });
     })();
