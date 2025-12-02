@@ -417,9 +417,97 @@
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
     }
 
-    @media (max-width: 600px) {
-      .compare-title {
-        font-size: 18px;
+    /* FOTO-SLIDER ---------------------------------------------------- */
+
+.compare-section {
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.compare-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.compare-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.compare-title {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.compare-text {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Container für Before/After */
+.compare-container {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 18px auto 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.28);
+  cursor: ew-resize;
+  background: #000;
+}
+
+/* Basisbild (liegt unten) */
+.compare-img {
+  width: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Overlay-Bild (oben) – wird in der BREITE beschnitten */
+.compare-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;          /* Start bei 50 % – Mitte */
+  overflow: hidden;
+}
+
+/* Vertikale Slider-Linie */
+.compare-slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #f9fafb;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.compare-slider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 2px solid #f9fafb;
+  background: rgba(15, 23, 42, 0.9);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+  .compare-title {
+    font-size: 18px;
+  }
       }
     }
   </style>
